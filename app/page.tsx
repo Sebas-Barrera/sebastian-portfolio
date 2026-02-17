@@ -285,14 +285,15 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Container con altura para sticky */}
-      <div id="hero-container" className="relative" style={{ height: '100vh' }}>
+      {/* Hero Section - Container con altura para sticky y soporte DVH */}
+      <div id="hero-container" className="relative h-screen supports-[height:100dvh]:h-[100dvh]" style={{ height: '100dvh' }}>
         <section
-          className="fixed top-0 left-0 right-0 h-screen flex items-center px-6 lg:px-8 z-0"
+          className="fixed top-0 left-0 right-0 h-screen supports-[height:100dvh]:h-[100dvh] flex items-center px-6 lg:px-8 z-0 will-change-transform"
           style={{
             transform: 'translate3d(0, 0, 0)',
             backfaceVisibility: 'hidden',
-            perspective: 1000
+            perspective: 1000,
+            contain: 'layout paint'
           }}
         >
           <div
@@ -324,7 +325,12 @@ export default function Home() {
       </div>
 
       {/* Servicios Section */}
-      <section id="services" className="relative z-10 py-20 px-6 lg:px-8 bg-background border-t border-border" aria-labelledby="services-heading">
+      <section 
+        id="services" 
+        className="relative z-10 py-20 px-6 lg:px-8 bg-background border-t border-border will-change-transform" 
+        aria-labelledby="services-heading"
+        style={{ transform: 'translate3d(0,0,0)' }} // Forzar nuevo contexto de apilamiento
+      >
         <div className="max-w-7xl mx-auto">
           <h2 id="services-heading" className="text-3xl md:text-4xl font-semibold tracking-tight text-text-primary mb-12 text-center animate-fade-in-slide">
             Experiencia & Servicios
