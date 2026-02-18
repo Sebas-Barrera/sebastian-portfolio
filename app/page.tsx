@@ -9,6 +9,8 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // Estado para opacidad del hero basado en scroll
   const [heroOpacity, setHeroOpacity] = useState(1);
+  // Estado para filtrado de proyectos
+  const [activeCategory, setActiveCategory] = useState<'mobile' | 'web'>('mobile');
 
   // Schema.org JSON-LD para SEO
   const personSchemaJsonLd = {
@@ -104,7 +106,7 @@ export default function Home() {
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
+  }, [activeCategory]);
 
   // Efecto de desvanecimiento del Hero al hacer scroll
   useEffect(() => {
@@ -506,278 +508,390 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="space-y-20">
-            {/* Proyecto 1 - ChallengeMe App */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
-              <div className="flex items-center gap-2 mb-4 flex-wrap">
-                <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
-                  App Móvil
-                </div>
-                <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
-                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
-                  </svg>
-                  Techvision Team
-                </div>
-                <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
-                  En Desarrollo
-                </div>
-              </div>
-              <h3 className="text-3xl font-semibold text-text-primary mb-4">
-                ChallengeMe.
-              </h3>
-              <p className="text-text-secondary mb-6 leading-relaxed">
-                Aplicación móvil innovadora que ofrece retos con diferentes temáticas para cualquier tipo de reunión,
-                desde pláticas profundas hasta diversión garantizada en fiestas. Desarrollada en colaboración con
-                <span className="text-accent font-medium"> Techvision</span> como socios, esta app promete transformar
-                la forma en que las personas interactúan y se divierten en grupos.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Expo</span>
-                <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">React Native</span>
-                <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Supabase</span>
-                <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">TypeScript</span>
-              </div>
-              <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
-                <p className="text-sm text-text-secondary">
-                  <span className="text-accent font-medium">Disponibilidad:</span> App Store y Play Store (próximamente)
-                </p>
-                <p className="text-sm text-text-secondary mt-1">
-                  <span className="text-accent font-medium">Mi Rol:</span> Frontend Development
-                </p>
-              </div>
-            </div>
-
-            
-            <div className="order-2 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
-              <MobileCarousel
-                images={[
-                  '/muckUpMovile/CM/1.png',
-                  '/muckUpMovile/CM/2.png',
-                  '/muckUpMovile/CM/3.png',
-                  '/muckUpMovile/CM/4.png',
-                  '/muckUpMovile/CM/5.png',
-                ]}
-              />
+          {/* Filtros de Proyectos */}
+          <div className="flex justify-center mb-16 animate-on-scroll">
+            <div className="inline-flex p-1 bg-surface border border-border rounded-full relative">
+              {/* Fondo animado para el tab activo */}
+              <div 
+                className="absolute top-1 bottom-1 bg-accent rounded-full transition-all duration-300 ease-in-out"
+                style={{
+                  left: activeCategory === 'mobile' ? '4px' : '50%',
+                  width: 'calc(50% - 4px)',
+                  transform: activeCategory === 'web' ? 'translateX(0)' : 'translateX(0)'
+                }}
+              ></div>
+              
+              <button
+                onClick={() => setActiveCategory('mobile')}
+                className={`relative z-10 px-8 py-3 rounded-full text-sm font-medium transition-colors duration-300 ${
+                  activeCategory === 'mobile' ? 'text-background' : 'text-text-secondary hover:text-text-primary'
+                }`}
+              >
+                Mobile Apps
+              </button>
+              
+              <button
+                onClick={() => setActiveCategory('web')}
+                className={`relative z-10 px-8 py-3 rounded-full text-sm font-medium transition-colors duration-300 ${
+                  activeCategory === 'web' ? 'text-background' : 'text-text-secondary hover:text-text-primary'
+                }`}
+              >
+                Web Apps
+              </button>
             </div>
           </div>
 
-          
-          <div className="flex items-center gap-4 my-16">
-            <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
-            <div className="w-2 h-2 rounded-full bg-accent/50"></div>
-            <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
-          </div>
-
-            {/* Proyecto 2 - Gestor Visión Allende (Layout Izquierda) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Mockup Container - Web Carousel */}
-              <div className="order-2 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
-              <WebCarousel
-                images={[
-                  '/muckUpWeb/VA/1.png',
-                  '/muckUpWeb/VA/2.png',
-                  '/muckUpWeb/VA/3.png',
-                  '/muckUpWeb/VA/4.png',
-                  '/muckUpWeb/VA/5.png',
-                  '/muckUpWeb/VA/6.png',
-                ]}
-              />
-              </div>
-
-              <div className="order-1 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
-                <div className="flex items-center gap-2 mb-4 flex-wrap">
-                  <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
-                    Aplicación Web
+          <div className="space-y-32">
+            {/* Mobile Apps Section */}
+            {activeCategory === 'mobile' && (
+              <div className="animate-fade-in-slide">
+                <div className="space-y-20">
+                {/* Proyecto 1 - ChallengeMe App */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  <div className="order-1 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
+                    <div className="flex items-center gap-2 mb-4 flex-wrap">
+                      <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
+                        App Móvil
+                      </div>
+                      <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                        </svg>
+                        Techvision Team
+                      </div>
+                      <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                        En Desarrollo
+                      </div>
+                    </div>
+                    <h3 className="text-3xl font-semibold text-text-primary mb-4">
+                      ChallengeMe.
+                    </h3>
+                    <p className="text-text-secondary mb-6 leading-relaxed">
+                      Aplicación móvil innovadora que ofrece retos con diferentes temáticas para cualquier tipo de reunión,
+                      desde pláticas profundas hasta diversión garantizada en fiestas. Desarrollada en colaboración con
+                      <span className="text-accent font-medium"> Techvision</span> como socios, esta app promete transformar
+                      la forma en que las personas interactúan y se divierten en grupos.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Expo</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">React Native</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Supabase</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">TypeScript</span>
+                    </div>
+                    <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
+                      <p className="text-sm text-text-secondary">
+                        <span className="text-accent font-medium">Disponibilidad:</span> App Store y Play Store (próximamente)
+                      </p>
+                      <p className="text-sm text-text-secondary mt-1">
+                        <span className="text-accent font-medium">Mi Rol:</span> Frontend Development
+                      </p>
+                    </div>
                   </div>
-                  <div className="inline-flex px-3 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full items-center gap-1.5 font-medium">
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
-                    </svg>
-                    Proyecto Individual
-                  </div>
-                  <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                    Completado
+
+                  <div className="order-2 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
+                    <MobileCarousel
+                      images={[
+                        '/muckUpMovile/CM/1.png',
+                        '/muckUpMovile/CM/2.png',
+                        '/muckUpMovile/CM/3.png',
+                        '/muckUpMovile/CM/4.png',
+                        '/muckUpMovile/CM/5.png',
+                      ]}
+                    />
                   </div>
                 </div>
-                <h3 className="text-3xl font-semibold text-text-primary mb-4">
-                  Gestor Visión Allende
-                </h3>
-                <p className="text-text-secondary mb-6 leading-relaxed">
-                  Sistema de gestión integral para ópticas que optimiza el control de clientes, ventas y graduaciones.
-                  Incluye registro completo de usuarios con datos personales y graduación oftalmológica, gestión de ventas
-                  y sistema de abonos, historial detallado de cada cliente, y generación automática de reportes mensuales de ventas.
-                  Una solución completa que digitaliza y moderniza la administración de negocios ópticos.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Next.js</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">NeonDB</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">PostgreSQL</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">TypeScript</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Tailwind</span>
-                </div>
-                <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
-                  <p className="text-sm text-text-secondary">
-                    <span className="text-accent font-medium">Características:</span> Gestión de clientes, ventas, abonos y reportes mensuales
-                  </p>
-                  <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Stack:</span> Full-stack Next.js con backend integrado
-                  </p>
-                  <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Mi Rol:</span> Full-stack Developer
-                  </p>
-                </div>
-              </div>
-            </div>
 
-            {/* Separador sutil entre proyectos */}
-            <div className="flex items-center gap-4 my-16">
-              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
-              <div className="w-2 h-2 rounded-full bg-accent/50"></div>
-              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
-            </div>
-
-            {/* Proyecto 3 - Arcana */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
-                <div className="flex items-center gap-2 mb-4 flex-wrap">
-                  <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
-                    App Móvil
-                  </div>
-                  <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
-                    </svg>
-                    Techvision Team
-                  </div>
-                  <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
-                    En Desarrollo
-                  </div>
+                {/* Separador sutil entre proyectos */}
+                <div className="flex items-center gap-4 my-16">
+                  <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+                  <div className="w-2 h-2 rounded-full bg-accent/50"></div>
+                  <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
                 </div>
-                <h3 className="text-3xl font-semibold text-text-primary mb-4">
-                  Arcana
-                </h3>
-                <p className="text-text-secondary mb-6 leading-relaxed">
-                  Plataforma móvil premium dedicada al mundo esotérico y holístico. Ofrece contenido especializado sobre
-                  fases lunares y su significado, simbolismo de velas, guías para rituales espirituales, y un juego de
-                  Tarot Sí/No para consultas personales. Incluye un feed social donde expertos comparten publicaciones
-                  y conocimientos. Desarrollada en colaboración con <span className="text-accent font-medium">Techvision</span> como
-                  socios. Acceso mediante suscripción mensual o anual con pasarela de pagos integrada.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Expo</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">React Native</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Supabase</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">TypeScript</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Stripe</span>
-                </div>
-                <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
-                  <p className="text-sm text-text-secondary">
-                    <span className="text-accent font-medium">Disponibilidad:</span> App Store y Play Store (próximamente)
-                  </p>
-                  <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Modelo:</span> Suscripción mensual/anual con pasarela de pagos
-                  </p>
-                  <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Contenido:</span> Tarot, fases lunares, velas, rituales y comunidad
-                  </p>
-                  <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Mi Rol:</span> Frontend Developer 
-                  </p>
-                </div>
-              </div>
 
-              <div className="order-2 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
-                <MobileCarousel
-                  images={[
-                    '/muckUpMovile/AC/6.png',
-                    '/muckUpMovile/AC/7.png',
-                    '/muckUpMovile/AC/8.png',
-                    '/muckUpMovile/AC/9.png',
-                    '/muckUpMovile/AC/10.png',
-                    '/muckUpMovile/AC/11.png',
-                  ]}
-                />
-              </div>
-            </div>
-
-            {/* Separador sutil entre proyectos */}
-            <div className="flex items-center gap-4 my-16">
-              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
-              <div className="w-2 h-2 rounded-full bg-accent/50"></div>
-              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
-            </div>
-
-            {/* Proyecto 4 - Tipsterzone */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Mockup Container - Web Carousel */}
-              <div className="order-2 lg:order-1 animate-on-scroll" data-animation="fade-in-right">
-              <WebCarousel
-                images={[
-                  '/muckUpWeb/TP/1.png',
-                  '/muckUpWeb/TP/2.png',
-                  '/muckUpWeb/TP/3.png',
-                  '/muckUpWeb/TP/4.png',
-                  '/muckUpWeb/TP/5.png',
-                  '/muckUpWeb/TP/6.png',
-                ]}
-              />
-              </div>
-
-              <div className="order-1 lg:order-2 animate-on-scroll" data-animation="fade-in-left">
-                <div className="flex items-center gap-2 mb-4 flex-wrap">
-                  <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
-                    Aplicación Web
+                {/* Proyecto 3 - Arcana */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
+                    <div className="flex items-center gap-2 mb-4 flex-wrap">
+                      <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
+                        App Móvil
+                      </div>
+                      <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                        </svg>
+                        Techvision Team
+                      </div>
+                      <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                        En Desarrollo
+                      </div>
+                    </div>
+                    <h3 className="text-3xl font-semibold text-text-primary mb-4">
+                      Arcana
+                    </h3>
+                    <p className="text-text-secondary mb-6 leading-relaxed">
+                      Plataforma móvil premium dedicada al mundo esotérico y holístico. Ofrece contenido especializado sobre
+                      fases lunares y su significado, simbolismo de velas, guías para rituales espirituales, y un juego de
+                      Tarot Sí/No para consultas personales. Incluye un feed social donde expertos comparten publicaciones
+                      y conocimientos. Desarrollada en colaboración con <span className="text-accent font-medium">Techvision</span> como
+                      socios. Acceso mediante suscripción mensual o anual con pasarela de pagos integrada.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Expo</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">React Native</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Supabase</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">TypeScript</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Stripe</span>
+                    </div>
+                    <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
+                      <p className="text-sm text-text-secondary">
+                        <span className="text-accent font-medium">Disponibilidad:</span> App Store y Play Store (próximamente)
+                      </p>
+                      <p className="text-sm text-text-secondary mt-1">
+                        <span className="text-accent font-medium">Modelo:</span> Suscripción mensual/anual con pasarela de pagos
+                      </p>
+                      <p className="text-sm text-text-secondary mt-1">
+                        <span className="text-accent font-medium">Contenido:</span> Tarot, fases lunares, velas, rituales y comunidad
+                      </p>
+                      <p className="text-sm text-text-secondary mt-1">
+                        <span className="text-accent font-medium">Mi Rol:</span> Frontend Developer 
+                      </p>
+                    </div>
                   </div>
-                  <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
-                    </svg>
-                    Techvision Team
+
+                  <div className="order-2 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
+                    <MobileCarousel
+                      images={[
+                        '/muckUpMovile/AC/6.png',
+                        '/muckUpMovile/AC/7.png',
+                        '/muckUpMovile/AC/8.png',
+                        '/muckUpMovile/AC/9.png',
+                        '/muckUpMovile/AC/10.png',
+                        '/muckUpMovile/AC/11.png',
+                      ]}
+                    />
                   </div>
-                  <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                    Completado
-                  </div>
-                </div>
-                <h3 className="text-3xl font-semibold text-text-primary mb-4">
-                  Tipsterzone
-                </h3>
-                <p className="text-text-secondary mb-6 leading-relaxed">
-                  Plataforma web especializada en pronósticos deportivos y parlays de múltiples deportes.
-                  Sistema de membresías que permite acceso a contenido gratuito y premium. Integración con
-                  autenticación de Google para facilitar el registro. Los usuarios pueden consultar tips y
-                  parlays de expertos en diferentes disciplinas deportivas. Desarrollada en colaboración con
-                  <span className="text-accent font-medium"> Techvision</span> como socios. La plataforma funciona como un
-                  centro de información, sin realizar apuestas directamente.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Angular</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Node.js</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">NeonDB</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Google Auth</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">TypeScript</span>
-                </div>
-                <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
-                  <p className="text-sm text-text-secondary">
-                    <span className="text-accent font-medium">Características:</span> Tips gratuitos y premium, múltiples deportes
-                  </p>
-                  <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Autenticación:</span> Google OAuth para acceso rápido
-                  </p>
-                  <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Modelo:</span> Freemium con membresías premium
-                  </p>
-                  <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Mi Rol:</span> Full-stack Developer (principalmente Frontend)
-                  </p>
                 </div>
               </div>
             </div>
+            )}
+
+            {/* Web Apps Section */}
+            {activeCategory === 'web' && (
+              <div className="animate-fade-in-slide">
+                <div className="space-y-20">
+                {/* Proyecto 5 - Zentro (Nuevo, Top Web App) */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
+                    <div className="flex items-center gap-2 mb-4 flex-wrap">
+                      <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
+                        SaaS B2B
+                      </div>
+                      <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                        </svg>
+                        Nexdev Team
+                      </div>
+                      <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                        Completado
+                      </div>
+                    </div>
+                    <h3 className="text-3xl font-semibold text-text-primary mb-4">
+                      Zentro
+                    </h3>
+                    <p className="text-text-secondary mb-6 leading-relaxed">
+                      Plataforma SaaS integral diseñada para la digitalización y gestión operativa de clínicas ópticas. 
+                      Unifica el expediente clínico oftalmológico con el punto de venta, inventarios y agenda en una 
+                      sola interfaz. Su arquitectura multi-tenant permite administrar múltiples organizaciones y sucursales 
+                      de manera centralizada, ofreciendo a los dueños de ópticas control total sobre su negocio y a los 
+                      optometristas herramientas especializadas para la consulta.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Next.js 16</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">TypeScript</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Supabase</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Tailwind CSS v4</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">PostgreSQL</span>
+                    </div>
+                    <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
+                      <p className="text-sm text-text-secondary">
+                        <span className="text-accent font-medium">Características:</span> Arquitectura Multi-tenant, Expediente Clínico, POS, Inventarios
+                      </p>
+                      <p className="text-sm text-text-secondary mt-1">
+                        <span className="text-accent font-medium">Modelo:</span> Suscripción mensual (SaaS)
+                      </p>
+                      <p className="text-sm text-text-secondary mt-1">
+                        <span className="text-accent font-medium">Mi Rol:</span> Lead Full-stack Developer (Arquitectura & Frontend)
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="order-2 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
+                    <WebCarousel
+                      images={[
+                        '/muckUpWeb/ZT/1.png',
+                        '/muckUpWeb/ZT/2.png',
+                        '/muckUpWeb/ZT/3.png',
+                        '/muckUpWeb/ZT/4.png',
+                        '/muckUpWeb/ZT/5.png',
+                        '/muckUpWeb/ZT/6.png',
+                        '/muckUpWeb/ZT/7.png',
+                        '/muckUpWeb/ZT/8.png',
+                        '/muckUpWeb/ZT/9.png',
+                        '/muckUpWeb/ZT/10.png',
+                      ]}
+                    />
+                  </div>
+                </div>
+
+                {/* Separador sutil entre proyectos */}
+                <div className="flex items-center gap-4 my-16">
+                  <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+                  <div className="w-2 h-2 rounded-full bg-accent/50"></div>
+                  <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+                </div>
+
+                {/* Proyecto 4 - Tipsterzone */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  {/* Mockup Container - Web Carousel */}
+                  <div className="order-2 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
+                    <WebCarousel
+                      images={[
+                        '/muckUpWeb/TP/1.png',
+                        '/muckUpWeb/TP/2.png',
+                        '/muckUpWeb/TP/3.png',
+                        '/muckUpWeb/TP/4.png',
+                        '/muckUpWeb/TP/5.png',
+                        '/muckUpWeb/TP/6.png',
+                      ]}
+                    />
+                  </div>
+
+                  <div className="order-1 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
+                    <div className="flex items-center gap-2 mb-4 flex-wrap">
+                      <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
+                        Aplicación Web
+                      </div>
+                      <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                        </svg>
+                        Techvision Team
+                      </div>
+                      <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                        Completado
+                      </div>
+                    </div>
+                    <h3 className="text-3xl font-semibold text-text-primary mb-4">
+                      Tipsterzone
+                    </h3>
+                    <p className="text-text-secondary mb-6 leading-relaxed">
+                      Plataforma web especializada en pronósticos deportivos y parlays de múltiples deportes.
+                      Sistema de membresías que permite acceso a contenido gratuito y premium. Integración con
+                      autenticación de Google para facilitar el registro. Los usuarios pueden consultar tips y
+                      parlays de expertos en diferentes disciplinas deportivas. Desarrollada en colaboración con
+                      <span className="text-accent font-medium"> Techvision</span> como socios. La plataforma funciona como un
+                      centro de información, sin realizar apuestas directamente.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Angular</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Node.js</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">NeonDB</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Google Auth</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">TypeScript</span>
+                    </div>
+                    <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
+                      <p className="text-sm text-text-secondary">
+                        <span className="text-accent font-medium">Características:</span> Tips gratuitos y premium, múltiples deportes
+                      </p>
+                      <p className="text-sm text-text-secondary mt-1">
+                        <span className="text-accent font-medium">Autenticación:</span> Google OAuth para acceso rápido
+                      </p>
+                      <p className="text-sm text-text-secondary mt-1">
+                        <span className="text-accent font-medium">Modelo:</span> Freemium con membresías premium
+                      </p>
+                      <p className="text-sm text-text-secondary mt-1">
+                        <span className="text-accent font-medium">Mi Rol:</span> Full-stack Developer (principalmente Frontend)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Separador sutil entre proyectos */}
+                <div className="flex items-center gap-4 my-16">
+                  <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+                  <div className="w-2 h-2 rounded-full bg-accent/50"></div>
+                  <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+                </div>
+
+                {/* Proyecto 2 - Gestor Visión Allende (Layout Izquierda) */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  {/* Mockup Container - Web Carousel */}
+                  <div className="order-2 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
+                    <WebCarousel
+                      images={[
+                        '/muckUpWeb/VA/1.png',
+                        '/muckUpWeb/VA/2.png',
+                        '/muckUpWeb/VA/3.png',
+                        '/muckUpWeb/VA/4.png',
+                        '/muckUpWeb/VA/5.png',
+                        '/muckUpWeb/VA/6.png',
+                      ]}
+                    />
+                  </div>
+
+                  <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
+                    <div className="flex items-center gap-2 mb-4 flex-wrap">
+                      <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
+                        Aplicación Web
+                      </div>
+                      <div className="inline-flex px-3 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+                        </svg>
+                        Nexdev Team
+                      </div>
+                      <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                        Completado
+                      </div>
+                    </div>
+                    <h3 className="text-3xl font-semibold text-text-primary mb-4">
+                      Gestor Visión Allende
+                    </h3>
+                    <p className="text-text-secondary mb-6 leading-relaxed">
+                      Sistema de gestión integral para ópticas que optimiza el control de clientes, ventas y graduaciones.
+                      Incluye registro completo de usuarios con datos personales y graduación oftalmológica, gestión de ventas
+                      y sistema de abonos, historial detallado de cada cliente, y generación automática de reportes mensuales de ventas.
+                      Una solución completa que digitaliza y moderniza la administración de negocios ópticos.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Next.js</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">NeonDB</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">PostgreSQL</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">TypeScript</span>
+                      <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Tailwind</span>
+                    </div>
+                    <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
+                      <p className="text-sm text-text-secondary">
+                        <span className="text-accent font-medium">Características:</span> Gestión de clientes, ventas, abonos y reportes mensuales
+                      </p>
+                      <p className="text-sm text-text-secondary mt-1">
+                        <span className="text-accent font-medium">Stack:</span> Full-stack Next.js con backend integrado
+                      </p>
+                      <p className="text-sm text-text-secondary mt-1">
+                        <span className="text-accent font-medium">Mi Rol:</span> Full-stack Developer
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            )}
           </div>
         </div>
       </section>
@@ -1399,7 +1513,7 @@ function MobileCarousel({ images }: { images: string[] }) {
                       src={image}
                       alt={`Mockup ${index + 1}`}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       sizes="(max-width: 768px) 100vw, 400px"
                     />
                   </div>
@@ -1546,7 +1660,7 @@ function WebCarousel({ images }: { images: string[] }) {
                     src={image}
                     alt={`Screenshot ${index + 1}`}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="(max-width: 768px) 100vw, 800px"
                   />
                 </div>
