@@ -10,7 +10,7 @@ export default function Home() {
   // Estado para opacidad del hero basado en scroll
   const [heroOpacity, setHeroOpacity] = useState(1);
   // Estado para filtrado de proyectos
-  const [activeCategory, setActiveCategory] = useState<'mobile' | 'web'>('mobile');
+  const [activeCategory, setActiveCategory] = useState<'mobile' | 'web'>('web');
 
   // Schema.org JSON-LD para SEO
   const personSchemaJsonLd = {
@@ -515,20 +515,11 @@ export default function Home() {
               <div 
                 className="absolute top-1 bottom-1 bg-accent rounded-full transition-all duration-300 ease-in-out"
                 style={{
-                  left: activeCategory === 'mobile' ? '4px' : '50%',
+                  left: activeCategory === 'web' ? '4px' : '50%',
                   width: 'calc(50% - 4px)',
                   transform: activeCategory === 'web' ? 'translateX(0)' : 'translateX(0)'
                 }}
               ></div>
-              
-              <button
-                onClick={() => setActiveCategory('mobile')}
-                className={`relative z-10 px-8 py-3 rounded-full text-sm font-medium transition-colors duration-300 ${
-                  activeCategory === 'mobile' ? 'text-background' : 'text-text-secondary hover:text-text-primary'
-                }`}
-              >
-                Mobile Apps
-              </button>
               
               <button
                 onClick={() => setActiveCategory('web')}
@@ -537,6 +528,15 @@ export default function Home() {
                 }`}
               >
                 Web Apps
+              </button>
+              
+              <button
+                onClick={() => setActiveCategory('mobile')}
+                className={`relative z-10 px-8 py-3 rounded-full text-sm font-medium transition-colors duration-300 ${
+                  activeCategory === 'mobile' ? 'text-background' : 'text-text-secondary hover:text-text-primary'
+                }`}
+              >
+                Mobile Apps
               </button>
             </div>
           </div>
@@ -622,9 +622,9 @@ export default function Home() {
                         </svg>
                         Techvision Team
                       </div>
-                      <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
-                        En Desarrollo
+                      <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                        Concluido
                       </div>
                     </div>
                     <h3 className="text-3xl font-semibold text-text-primary mb-4">
@@ -646,7 +646,7 @@ export default function Home() {
                     </div>
                     <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
                       <p className="text-sm text-text-secondary">
-                        <span className="text-accent font-medium">Disponibilidad:</span> App Store y Play Store (próximamente)
+                        <span className="text-accent font-medium">Disponibilidad:</span> App Store y Play Store
                       </p>
                       <p className="text-sm text-text-secondary mt-1">
                         <span className="text-accent font-medium">Modelo:</span> Suscripción mensual/anual con pasarela de pagos
@@ -657,6 +657,40 @@ export default function Home() {
                       <p className="text-sm text-text-secondary mt-1">
                         <span className="text-accent font-medium">Mi Rol:</span> Frontend Developer 
                       </p>
+                      <div className="mt-8 pt-6 border-t border-white/5">
+                        <p className="text-sm font-medium text-text-secondary mb-4">Disponible en:</p>
+                        <div className="flex flex-wrap gap-4">
+                          <a 
+                            href="https://apps.apple.com/mx/app/arcana/id6752884968" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all group/store"
+                          >
+                            <svg className="w-6 h-6 text-text-primary" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.45-1.62 3.69-.97 1.25.68 2.06 1.7 2.65 2.62-2.57 1.57-2.05 5.59.5 6.64-.52 1.34-1.22 2.66-2.09 3.59-.44.5-.83.89-1.28.89 0 0 .54-.54.45-.54zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.16 2.09-1.92 4.14-3.74 4.25z"/>
+                            </svg>
+                            <div className="text-left">
+                              <div className="text-[10px] text-text-secondary uppercase tracking-wider leading-none mb-0.5">Download on the</div>
+                              <div className="text-sm font-semibold text-text-primary leading-none">App Store</div>
+                            </div>
+                          </a>
+
+                          <a 
+                            href="https://play.google.com/store/apps/details?id=com.brandongr90.arcanamobile&pcampaignid=web_share" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all group/store"
+                          >
+                            <svg className="w-6 h-6 text-text-primary" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.14L3.84,2.15C3.84,2.15 6.05,2.66 6.05,2.66Z" />
+                            </svg>
+                            <div className="text-left">
+                              <div className="text-[10px] text-text-secondary uppercase tracking-wider leading-none mb-0.5">Get it on</div>
+                              <div className="text-sm font-semibold text-text-primary leading-none">Google Play</div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -817,6 +851,25 @@ export default function Home() {
                       <p className="text-sm text-text-secondary mt-1">
                         <span className="text-accent font-medium">Mi Rol:</span> Full-stack Developer (principalmente Frontend)
                       </p>
+                      <div className="mt-8 pt-6 border-t border-white/5">
+                        <p className="text-sm font-medium text-text-secondary mb-4">Disponible en:</p>
+                        <div className="flex flex-wrap gap-4">
+                          <a 
+                            href="https://www.tipster-zone.com/?fbclid=IwY2xjawQCU6FleHRuA2FlbQIxMABicmlkETFUNzVLR1h4RTE5R2lNd0puc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqxIcOt1VzMhUgbrU8P4pYvJRz_o1ZF6oLq58PJ59sWKimGPaCxH9VAraZry_aem_AKn3LlTidmPLfY_j9irIrQ"
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all group/store"
+                          >
+                            <svg className="w-6 h-6 text-text-primary" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                            </svg>
+                            <div className="text-left">
+                              <div className="text-[10px] text-text-secondary uppercase tracking-wider leading-none mb-0.5">Visitar Ahora</div>
+                              <div className="text-sm font-semibold text-text-primary leading-none">Sitio Web</div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1513,7 +1566,7 @@ function MobileCarousel({ images }: { images: string[] }) {
                       src={image}
                       alt={`Mockup ${index + 1}`}
                       fill
-                      className="object-contain"
+                      className="object-cover"
                       sizes="(max-width: 768px) 100vw, 400px"
                     />
                   </div>
