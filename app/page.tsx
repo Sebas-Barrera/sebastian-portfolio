@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 
 export default function Home() {
   // Estado para menú móvil
@@ -760,6 +760,25 @@ export default function Home() {
                       <p className="text-sm text-text-secondary mt-1">
                         <span className="text-accent font-medium">Mi Rol:</span> Lead Full-stack Developer (Arquitectura & Frontend)
                       </p>
+                      <div className="mt-8 pt-6 border-t border-white/5">
+                        <p className="text-sm font-medium text-text-secondary mb-4">Disponible en:</p>
+                        <div className="flex flex-wrap gap-4">
+                          <a 
+                            href="https://www.zentro.company" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all group/store"
+                          >
+                            <svg className="w-6 h-6 text-text-primary" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                            </svg>
+                            <div className="text-left">
+                              <div className="text-[10px] text-text-secondary uppercase tracking-wider leading-none mb-0.5">Visitar Ahora</div>
+                              <div className="text-sm font-semibold text-text-primary leading-none">Sitio Web</div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -1337,11 +1356,34 @@ function ContactForm() {
 
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!formRef.current) return;
+    
     setIsSubmitting(true);
     setSubmitStatus(null);
+    
+    const formData = new FormData(formRef.current);
+    const data = {
+      // Campos requeridos por FormSubmit
+      name: formData.get('from_name'),
+      email: formData.get('from_email'),
+      message: formData.get('message'),
+      subject: formData.get('subject'),
+      
+      // Configuración de FormSubmit
+      _template: "table",
+      _captcha: "false",
+      _subject: `Nuevo mensaje de ${formData.get('from_name')}: ${formData.get('subject')}`,
+      
+      // Campos personalizados
+      Enterprise: "Nexdev",
+      
+      // Campos originales para mantener compatibilidad si es necesario
+      from_name: formData.get('from_name'),
+      from_email: formData.get('from_email'),
+    };
 
     try {
-      // Primero verificar rate limit con el servidor
+      // Primero verificar rate limit con el servidor (mantenemos esto para protección extra)
       const checkResponse = await fetch('/api/contact');
       const checkResult = await checkResponse.json();
 
@@ -1354,27 +1396,33 @@ function ContactForm() {
         return;
       }
 
-      // Si está permitido, enviar email desde el navegador con EmailJS
-      if (formRef.current) {
-        const result = await emailjs.sendForm(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-          formRef.current,
-          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-        );
+      // Enviar a FormSubmit.co via AJAX
+      const response = await fetch("https://formsubmit.co/ajax/nexdevcoding@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
 
-        console.log('Email enviado exitosamente:', result.text);
-
-        // Registrar el envío en el servidor para incrementar contador
-        await fetch('/api/contact', { method: 'POST' });
-
-        // Éxito
-        setSubmitStatus('success');
-        if (formRef.current) {
-          formRef.current.reset();
-        }
-        setTimeout(() => setSubmitStatus(null), 5000);
+      if (!response.ok) {
+        throw new Error('Error en la petición a FormSubmit');
       }
+      
+      const result = await response.json();
+      console.log('Email enviado exitosamente:', result);
+
+      // Registrar el envío en el servidor para incrementar contador
+      await fetch('/api/contact', { method: 'POST' });
+
+      // Éxito
+      setSubmitStatus('success');
+      if (formRef.current) {
+        formRef.current.reset();
+      }
+      setTimeout(() => setSubmitStatus(null), 5000);
+      
     } catch (error) {
       console.error('Error al enviar email:', error);
       setSubmitStatus('error');
