@@ -13,16 +13,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sebastián Barrera | Desarrollador Full Stack, Ingeniero de Software",
-  description: "Desarrollador full stack profesional especializado en creación de páginas web, aplicaciones móviles y sistemas backend. Ingeniero de software con experiencia en Next.js, React Native, Node.js, Angular, Vue.js. Transformo ideas en soluciones digitales escalables y de alto rendimiento.",
+  title: "Nexdev Labs | Agencia de Desarrollo de Software",
+  description:
+    "Agencia de desarrollo de software integral. Especializados en desarrollo web moderno, aplicaciones móviles multiplataforma y arquitecturas backend escalables. Creamos productos digitales de alto rendimiento.",
   keywords: [
-    "Sebastián Barrera",
-    "desarrollador full stack",
-    "creador de páginas web",
-    "ingeniero de software",
+    "Nexdev Labs",
+    "Agencia de Software",
+    "Agencia de Desarrollo",
+    "Techvision",
     "desarrollo web profesional",
     "desarrollo de aplicaciones móviles",
-    "programador full stack",
     "desarrollo Next.js",
     "desarrollo React Native",
     "creación de sitios web",
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
     "programador México",
     "desarrollador freelance",
     "soluciones digitales",
-    "software a medida"
+    "software a medida",
   ],
-  authors: [{ name: "Sebastián Barrera", url: "https://sebastian-portafolio.vercel.app" }],
-  creator: "Sebastián Barrera",
-  publisher: "Sebastián Barrera",
+  authors: [{ name: "Nexdev Labs", url: "https://nexdevlabs.com" }],
+  creator: "Nexdev Labs",
+  publisher: "Nexdev Labs",
   robots: {
     index: true,
     follow: true,
@@ -47,28 +47,30 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://sebastian-portafolio.vercel.app",
+    canonical: "https://nexdevlabs.com",
   },
   openGraph: {
     type: "website",
     locale: "es_MX",
-    url: "https://sebastian-portafolio.vercel.app",
-    siteName: "Sebastián Barrera Portfolio",
-    title: "Sebastián Barrera | Desarrollador Full Stack, Ingeniero de Software",
-    description: "Desarrollador full stack profesional especializado en creación de páginas web, aplicaciones móviles y sistemas backend. Transformo ideas en soluciones digitales escalables.",
+    url: "https://nexdevlabs.com",
+    siteName: "Nexdev Labs",
+    title: "Nexdev Labs | Agencia de Desarrollo de Software",
+    description:
+      "Agencia de desarrollo de software integral. Especializados en desarrollo web moderno, aplicaciones móviles multiplataforma y arquitecturas backend escalables. Creamos productos digitales de alto rendimiento.",
     images: [
       {
         url: "/logos/logoND.png",
         width: 1200,
         height: 630,
-        alt: "Sebastián Barrera - Desarrollo de Software Profesional",
+        alt: "Nexdev Labs - Agencia de Software",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sebastián Barrera | Desarrollador Full Stack, Ingeniero de Software",
-    description: "Desarrollador full stack profesional especializado en creación de páginas web y aplicaciones móviles. Next.js, React Native, Node.js.",
+    title: "Nexdev Labs | Agencia de Desarrollo de Software",
+    description:
+      "Agencia de desarrollo de software integral. Especializados en desarrollo web moderno, aplicaciones móviles multiplataforma y arquitecturas backend escalables.",
     images: ["/logos/logoND.png"],
   },
   verification: {

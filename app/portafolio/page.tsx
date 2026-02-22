@@ -16,10 +16,10 @@ export default function Home() {
   const personSchemaJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Nexdev Labs",
-    jobTitle: "Empresa de Desarrollo de Software",
+    name: "Sebastián Barrera",
+    jobTitle: "Desarrollador Full Stack & Ingeniero de Software",
     image: "https://sebastian-portafolio.vercel.app/logos/logoND.png",
-    url: "https://nexdevlabs.com",
+    url: "https://sebastian-portafolio.vercel.app",
     email: "nexdevcoding@gmail.com",
     sameAs: [
       "https://www.linkedin.com/in/sebas-barrera-571242247/",
@@ -50,8 +50,9 @@ export default function Home() {
       addressCountry: "MX",
     },
     hasOccupation: {
-      "@type": "OrganizationRole",
-      name: "Agencia de Software",
+      "@type": "Occupation",
+      name: "Desarrollador Full Stack",
+      occupationalCategory: "15-1252.00",
       skills:
         "Next.js, React, React Native, Node.js, TypeScript, Angular, Vue.js, Flutter, Swift, Laravel, Python",
       description:
@@ -217,10 +218,10 @@ export default function Home() {
                   </div>
                   <div className="flex items-center gap-1">
                     <span className="text-xl font-bold tracking-tight text-accent">
-                      Nexdev
+                      Sebastián
                     </span>
                     <span className="text-xl font-bold tracking-tight text-text-primary">
-                      Labs
+                      Barrera
                     </span>
                   </div>
                 </div>
@@ -228,10 +229,10 @@ export default function Home() {
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center space-x-8">
                   <a
-                    href="#"
+                    href="/"
                     className="text-sm text-text-secondary hover:text-accent transition-colors"
                   >
-                    Inicio
+                    Volver a Agencia
                   </a>
                   <a
                     href="#services"
@@ -292,11 +293,11 @@ export default function Home() {
             >
               <div className="px-6 py-4 space-y-3 bg-background/95 backdrop-blur-md">
                 <a
-                  href="#"
+                  href="/"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2 text-text-secondary hover:text-accent transition-colors"
                 >
-                  Inicio
+                  Volver a Agencia
                 </a>
                 <a
                   href="#services"
@@ -364,17 +365,17 @@ export default function Home() {
                     className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary mb-6 leading-tight opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]"
                     itemProp="name"
                   >
-                    Transformamos tus ideas en{" "}
+                    Transformo tus ideas en{" "}
                     <span className="text-accent">soluciones digitales</span>
                   </h1>
                   <p
                     className="text-xl md:text-2xl text-text-secondary font-light leading-relaxed mb-8 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.5s_forwards]"
                     itemProp="description"
                   >
-                    Somos una agencia de desarrollo de software integral.
-                    Especializados en desarrollo web moderno, aplicaciones
-                    móviles multiplataforma y arquitecturas backend escalables.
-                    Creamos productos digitales de alto rendimiento.
+                    Ingeniero de Software & Desarrollador Full Stack.
+                    Especializado en desarrollo web con Next.js, React, Angular
+                    y aplicaciones móviles. Creo software escalable y de alto
+                    rendimiento.
                   </p>
                   <div className="flex flex-wrap gap-4 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.7s_forwards]">
                     <a
@@ -443,9 +444,9 @@ export default function Home() {
                     className="text-text-secondary text-sm leading-relaxed mb-4"
                     itemProp="description"
                   >
-                    Creamos páginas web modernas y responsivas con Next.js,
-                    React, Angular y Vue.js. Sitios web profesionales
-                    optimizados para rendimiento y SEO.
+                    Creo páginas web modernas y responsivas con Next.js, React,
+                    Angular y Vue.js. Sitios web profesionales optimizados para
+                    rendimiento y SEO.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="text-xs text-accent">Next.js</span>
@@ -487,7 +488,7 @@ export default function Home() {
                     className="text-text-secondary text-sm leading-relaxed mb-4"
                     itemProp="description"
                   >
-                    Desarrollamos aplicaciones móviles nativas y multiplataforma
+                    Desarrollo aplicaciones móviles nativas y multiplataforma
                     para iOS y Android con Flutter, React Native y Swift.
                     Software móvil de calidad profesional.
                   </p>
@@ -531,8 +532,8 @@ export default function Home() {
                     className="text-text-secondary text-sm leading-relaxed mb-4"
                     itemProp="description"
                   >
-                    Especializados en ingeniería de software backend. Creamos
-                    APIs REST y GraphQL con Node.js, Laravel, Python y .NET.
+                    Especializado en ingeniería de software backend. Creo APIs
+                    REST y GraphQL con Node.js, Laravel, Python y .NET.
                     Arquitecturas robustas, escalables y seguras con bases de
                     datos optimizadas.
                   </p>
@@ -1381,31 +1382,32 @@ export default function Home() {
                   </h2>
                   <div className="space-y-4 text-text-secondary leading-relaxed">
                     <p>
-                      Somos un equipo de desarrolladores especializados en crear
-                      soluciones digitales completas para empresas y startups.
-                      Trabajamos con las tecnologías más modernas y demandadas
-                      del mercado: Next.js, React, Angular, React Native,
-                      Node.js y arquitecturas Cloud.
+                      Soy desarrollador full stack especializado en crear
+                      soluciones digitales completas. Trabajo con las
+                      tecnologías más modernas y demandadas del mercado:
+                      Next.js, React, Angular, React Native, Node.js y más.
                     </p>
                     <p>
-                      En{" "}
-                      <span className="text-accent font-medium">
-                        Nexdev Labs
-                      </span>
-                      , nuestro enfoque es desarrollar productos increíbles que
-                      aporten un alto valor y escalabilidad. Nos integramos a
-                      los objetivos de tu negocio para entregar sistemas
-                      robustos, funcionales y atractivos.
-                    </p>
-                    <p>
-                      Además de nuestros proyectos de cliente directo,
-                      mantenemos una fuerte alianza con{" "}
+                      Formo parte de{" "}
                       <span className="text-accent font-medium">
                         Techvision
                       </span>
-                      , colaborando en proyectos de gran envergadura y
-                      complejidad, lo que nos permite escalar nuestra operativa
-                      según las necesidades del cliente.
+                      , un equipo de 4 desarrolladores talentosos donde
+                      colaboramos en proyectos de gran escala y alta
+                      complejidad. Esta experiencia de trabajo en equipo me ha
+                      permitido desarrollar habilidades tanto técnicas como de
+                      colaboración.
+                    </p>
+                    <p>
+                      <span className="text-text-primary font-medium">
+                        Para proyectos individuales
+                      </span>
+                      , ofrezco mis servicios de forma independiente en
+                      desarrollo web, móvil y backend.{" "}
+                      <span className="text-text-primary font-medium">
+                        Para proyectos empresariales más grandes
+                      </span>
+                      , cuento con el respaldo completo de mi equipo Techvision.
                     </p>
                   </div>
                 </div>
@@ -1421,8 +1423,8 @@ export default function Home() {
                   {/* Foto personal - perfectamente redonda */}
                   <div className="relative w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-accent/30 shadow-2xl hover:border-accent/60 hover:scale-105 transition-all duration-500">
                     <Image
-                      src="/logos/logoND.png"
-                      alt="Nexdev Labs - Agencia de Software"
+                      src="/logos/SebasInge.png"
+                      alt="Sebastián Barrera - Desarrollador Full Stack"
                       fill
                       className="object-cover"
                       sizes="384px"
@@ -1619,8 +1621,8 @@ export default function Home() {
                   ¿Tienes una idea de negocio?
                 </h2>
                 <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-                  Si tienes una gran idea pero no el equipo técnico para
-                  desarrollarla, podemos ayudarte a convertirla en realidad.
+                  Si tienes una gran idea pero no el conocimiento técnico para
+                  desarrollarla, puedo ayudarte a convertirla en realidad.
                 </p>
                 <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-sm text-blue-400">
                   <svg
@@ -1666,7 +1668,7 @@ export default function Home() {
                           Comparte tu idea
                         </p>
                         <p className="text-sm text-text-secondary">
-                          Cuéntanos sobre tu concepto de negocio
+                          Cuéntame sobre tu concepto de negocio
                         </p>
                       </div>
                     </div>
@@ -1692,8 +1694,8 @@ export default function Home() {
                           Desarrollo conjunto
                         </p>
                         <p className="text-sm text-text-secondary">
-                          Trabajamos en el proyecto (con el equipo Techvision
-                          según la escala)
+                          Trabajo en el proyecto (individualmente o con el
+                          equipo Techvision según la escala)
                         </p>
                       </div>
                     </div>
@@ -1857,7 +1859,7 @@ export default function Home() {
                   </svg>
                 </a>
                 <p className="text-sm text-text-secondary mt-4">
-                  O escríbenos a{" "}
+                  O escríbeme a{" "}
                   <span className="text-accent">nexdevcoding@gmail.com</span>
                 </p>
               </div>
@@ -1874,7 +1876,7 @@ export default function Home() {
                 Trabajemos juntos
               </h2>
               <p className="text-center text-text-secondary mb-4">
-                ¿Tienes un proyecto en mente? Conversemos sobre cómo podemos
+                ¿Tienes un proyecto en mente? Conversemos sobre cómo puedo
                 ayudarte a hacerlo realidad
               </p>
 
@@ -1901,13 +1903,13 @@ export default function Home() {
                       Cotización gratuita
                     </h3>
                     <p className="text-text-secondary text-sm leading-relaxed">
-                      Envíanos un mensaje con las especificaciones o necesidades
+                      Envíame un mensaje con las especificaciones o necesidades
                       de tu proyecto para obtener una
                       <span className="text-accent font-medium">
                         {" "}
                         cotización sin compromiso
                       </span>
-                      . Te responderemos en menos de 24 horas con un presupuesto
+                      . Te responderé en menos de 24 horas con un presupuesto
                       detallado y tiempo estimado de desarrollo.
                     </p>
                   </div>
@@ -1920,7 +1922,7 @@ export default function Home() {
               {/* Enlaces de contacto directo */}
               <div className="mt-12 pt-12 border-t border-border">
                 <p className="text-center text-text-secondary mb-6">
-                  O contáctanos directamente:
+                  O contáctame directamente:
                 </p>
                 <div className="flex flex-col md:flex-row justify-center gap-6">
                   <a
@@ -1982,14 +1984,30 @@ export default function Home() {
             <div className="max-w-7xl mx-auto">
               <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="text-sm text-text-secondary">
-                  2025 Nexdev Labs. Todos los derechos reservados.
+                  2025 Sebastián Barrera. Todos los derechos reservados.
                 </div>
                 <div className="flex gap-6">
                   <a
-                    href="/portafolio"
+                    href="/"
                     className="text-text-secondary hover:text-accent transition-colors"
                   >
-                    Conoce a nuestro fundador (Sebastián Barrera)
+                    Nexdev Labs (Agencia)
+                  </a>
+                  <a
+                    href="https://github.com/Sebas-Barrera"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text-secondary hover:text-accent transition-colors"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/sebas-barrera-571242247/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text-secondary hover:text-accent transition-colors"
+                  >
+                    LinkedIn
                   </a>
                   <a
                     href="mailto:nexdevcoding@gmail.com"
