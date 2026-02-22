@@ -16,7 +16,7 @@ export default function Home() {
   const personSchemaJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Nexdev Labs",
+    name: "NexdevTech",
     jobTitle: "Empresa de Desarrollo de Software",
     image: "https://sebastian-portafolio.vercel.app/logos/logoND.png",
     url: "https://nexdevlabs.com",
@@ -1390,7 +1390,7 @@ export default function Home() {
                     <p>
                       En{" "}
                       <span className="text-accent font-medium">
-                        Nexdev Labs
+                        NexdevTech
                       </span>
                       , nuestro enfoque es desarrollar productos increíbles que
                       aporten un alto valor y escalabilidad. Nos integramos a
@@ -1422,7 +1422,7 @@ export default function Home() {
                   <div className="relative w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-accent/30 shadow-2xl hover:border-accent/60 hover:scale-105 transition-all duration-500">
                     <Image
                       src="/logos/logoND.png"
-                      alt="Nexdev Labs - Agencia de Software"
+                      alt="NexdevTech - Agencia de Software"
                       fill
                       className="object-cover"
                       sizes="384px"
@@ -1982,7 +1982,7 @@ export default function Home() {
             <div className="max-w-7xl mx-auto">
               <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="text-sm text-text-secondary">
-                  2025 Nexdev Labs. Todos los derechos reservados.
+                  2025 NexdevTech. Todos los derechos reservados.
                 </div>
                 <div className="flex gap-6">
                   <a

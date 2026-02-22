@@ -1991,7 +1991,7 @@ export default function Home() {
                     href="/"
                     className="text-text-secondary hover:text-accent transition-colors"
                   >
-                    Nexdev Labs (Agencia)
+                    NexdevTech (Agencia)
                   </a>
                   <a
                     href="https://github.com/Sebas-Barrera"

@@ -13,11 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nexdev Labs | Agencia de Desarrollo de Software",
+  title: "NexdevTech | Agencia de Desarrollo de Software",
   description:
     "Agencia de desarrollo de software integral. Especializados en desarrollo web moderno, aplicaciones móviles multiplataforma y arquitecturas backend escalables. Creamos productos digitales de alto rendimiento.",
   keywords: [
-    "Nexdev Labs",
+    "NexdevTech",
     "Agencia de Software",
     "Agencia de Desarrollo",
     "Techvision",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     "soluciones digitales",
     "software a medida",
   ],
-  authors: [{ name: "Nexdev Labs", url: "https://nexdevlabs.com" }],
-  creator: "Nexdev Labs",
-  publisher: "Nexdev Labs",
+  authors: [{ name: "NexdevTech", url: "https://nexdevlabs.com" }],
+  creator: "NexdevTech",
+  publisher: "NexdevTech",
   robots: {
     index: true,
     follow: true,
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_MX",
     url: "https://nexdevlabs.com",
-    siteName: "Nexdev Labs",
-    title: "Nexdev Labs | Agencia de Desarrollo de Software",
+    siteName: "NexdevTech",
+    title: "NexdevTech | Agencia de Desarrollo de Software",
     description:
       "Agencia de desarrollo de software integral. Especializados en desarrollo web moderno, aplicaciones móviles multiplataforma y arquitecturas backend escalables. Creamos productos digitales de alto rendimiento.",
     images: [
@@ -62,13 +62,13 @@ export const metadata: Metadata = {
         url: "/logos/logoND.png",
         width: 1200,
         height: 630,
-        alt: "Nexdev Labs - Agencia de Software",
+        alt: "NexdevTech - Agencia de Software",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexdev Labs | Agencia de Desarrollo de Software",
+    title: "NexdevTech | Agencia de Desarrollo de Software",
     description:
       "Agencia de desarrollo de software integral. Especializados en desarrollo web moderno, aplicaciones móviles multiplataforma y arquitecturas backend escalables.",
     images: ["/logos/logoND.png"],
