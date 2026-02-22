@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "soluciones digitales",
     "software a medida",
   ],
-  authors: [{ name: "NexdevTech", url: "https://nexdevlabs.com" }],
+  authors: [{ name: "NexdevTech", url: "https://nexdevtech.info" }],
   creator: "NexdevTech",
   publisher: "NexdevTech",
   robots: {
@@ -47,12 +47,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://nexdevlabs.com",
+    canonical: "https://nexdevtech.info",
   },
   openGraph: {
     type: "website",
     locale: "es_MX",
-    url: "https://nexdevlabs.com",
+    url: "https://nexdevtech.info",
     siteName: "NexdevTech",
     title: "NexdevTech | Agencia de Desarrollo de Software",
     description:
