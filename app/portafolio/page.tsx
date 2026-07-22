@@ -982,6 +982,299 @@ export default function Home() {
                 {activeCategory === "web" && (
                   <div className="animate-fade-in-slide">
                     <div className="space-y-20">
+                      {/* Proyecto 7 - Bookea (Marketplace SaaS de Reservas) */}
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div
+                          className="order-1 lg:order-1 animate-on-scroll"
+                          data-animation="fade-in-left"
+                        >
+                          <div className="flex items-center gap-2 mb-4 flex-wrap">
+                            <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
+                              Marketplace SaaS
+                            </div>
+                            <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                              <svg
+                                className="w-3 h-3"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                              </svg>
+                              NexdevTech Team
+                            </div>
+                            <div className="inline-flex px-3 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                              <svg
+                                className="w-3 h-3"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                              </svg>
+                              Techvision Team
+                            </div>
+                            <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                              Completado
+                            </div>
+                          </div>
+                          <h3 className="text-3xl font-semibold text-text-primary mb-4">
+                            Bookea
+                          </h3>
+                          <p className="text-text-secondary mb-6 leading-relaxed">
+                            Plataforma SaaS y marketplace para la reservación de
+                            citas en línea. Conecta a negocios locales con sus
+                            clientes mediante un directorio inteligente con
+                            búsqueda por categoría, municipio y geolocalización
+                            («cerca de mí»). Cada negocio dispone de un panel de
+                            control para gestionar servicios, personal, agenda,
+                            pagos y analíticas en tiempo real. Incluye
+                            reservación de citas 24/7, pagos en línea con Stripe,
+                            notificaciones automáticas por correo y un modelo de
+                            suscripción multi-tenant que escala a miles de
+                            negocios.
+                          </p>
+                          <div className="flex flex-wrap gap-2 mb-6">
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              Next.js 16
+                            </span>
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              TypeScript
+                            </span>
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              Supabase
+                            </span>
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              Stripe
+                            </span>
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              Tailwind CSS
+                            </span>
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              Framer Motion
+                            </span>
+                          </div>
+                          <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
+                            <p className="text-sm text-text-secondary">
+                              <span className="text-accent font-medium">
+                                Características:
+                              </span>{" "}
+                              Directorio con geolocalización, reservación 24/7,
+                              pagos con Stripe y panel de control por negocio
+                            </p>
+                            <p className="text-sm text-text-secondary mt-1">
+                              <span className="text-accent font-medium">
+                                Modelo:
+                              </span>{" "}
+                              Suscripción multi-tenant (SaaS Marketplace)
+                            </p>
+                            <p className="text-sm text-text-secondary mt-1">
+                              <span className="text-accent font-medium">
+                                Mi Rol:
+                              </span>{" "}
+                              Full-stack Developer
+                            </p>
+                            <div className="mt-8 pt-6 border-t border-white/5">
+                              <p className="text-sm font-medium text-text-secondary mb-4">
+                                Disponible en:
+                              </p>
+                              <div className="flex flex-wrap gap-4">
+                                <a
+                                  href="https://bookea.net"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-3 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all group/store"
+                                >
+                                  <svg
+                                    className="w-6 h-6 text-text-primary"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                  >
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                                  </svg>
+                                  <div className="text-left">
+                                    <div className="text-[10px] text-text-secondary uppercase tracking-wider leading-none mb-0.5">
+                                      Visitar Ahora
+                                    </div>
+                                    <div className="text-sm font-semibold text-text-primary leading-none">
+                                      Sitio Web
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          className="order-2 lg:order-2 animate-on-scroll"
+                          data-animation="fade-in-right"
+                        >
+                          <WebCarousel
+                            images={[
+                              "/muckUpWeb/BO/1.png",
+                              "/muckUpWeb/BO/2.png",
+                              "/muckUpWeb/BO/3.png",
+                              "/muckUpWeb/BO/4.png",
+                              "/muckUpWeb/BO/5.png",
+                              "/muckUpWeb/BO/6.png",
+                            ]}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Separador sutil entre proyectos */}
+                      <div className="flex items-center gap-4 my-16">
+                        <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+                        <div className="w-2 h-2 rounded-full bg-accent/50"></div>
+                        <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+                      </div>
+
+                      {/* Proyecto 6 - na|na (Web App Hotelera) */}
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        {/* Mockup Container - Web Carousel */}
+                        <div
+                          className="order-2 lg:order-1 animate-on-scroll"
+                          data-animation="fade-in-left"
+                        >
+                          <WebCarousel
+                            images={[
+                              "/muckUpWeb/NA/1.png",
+                              "/muckUpWeb/NA/2.png",
+                              "/muckUpWeb/NA/3.png",
+                              "/muckUpWeb/NA/4.png",
+                              "/muckUpWeb/NA/5.png",
+                            ]}
+                          />
+                        </div>
+
+                        <div
+                          className="order-1 lg:order-2 animate-on-scroll"
+                          data-animation="fade-in-right"
+                        >
+                          <div className="flex items-center gap-2 mb-4 flex-wrap">
+                            <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
+                              Reservas & Hotelería
+                            </div>
+                            <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                              <svg
+                                className="w-3 h-3"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                              </svg>
+                              NexdevTech Team
+                            </div>
+                            <div className="inline-flex px-3 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                              <svg
+                                className="w-3 h-3"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                              </svg>
+                              Techvision Team
+                            </div>
+                            <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                              Completado
+                            </div>
+                          </div>
+                          <h3 className="text-3xl font-semibold text-text-primary mb-4">
+                            na|na
+                          </h3>
+                          <p className="text-text-secondary mb-6 leading-relaxed">
+                            Plataforma web de reservación para un hotel boutique
+                            de lujo. Ofrece una experiencia inmersiva y
+                            completamente bilingüe (Español / Inglés) con soporte
+                            de doble moneda (USD / MXN). Integra un motor de
+                            reservación de extremo a extremo: calendario dinámico
+                            con tarifas por noche, selección de habitaciones,
+                            confirmación y pagos en línea seguros con Stripe.
+                            Incluye secciones editoriales de habitaciones,
+                            experiencias y jardines, además de un panel
+                            administrativo para la gestión operativa del hotel.
+                          </p>
+                          <div className="flex flex-wrap gap-2 mb-6">
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              Next.js 16
+                            </span>
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              TypeScript
+                            </span>
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              Supabase
+                            </span>
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              Stripe
+                            </span>
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              Tailwind CSS v4
+                            </span>
+                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
+                              GSAP
+                            </span>
+                          </div>
+                          <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
+                            <p className="text-sm text-text-secondary">
+                              <span className="text-accent font-medium">
+                                Características:
+                              </span>{" "}
+                              Reservación online, calendario de tarifas, pagos con
+                              Stripe y experiencia bilingüe (ES/EN)
+                            </p>
+                            <p className="text-sm text-text-secondary mt-1">
+                              <span className="text-accent font-medium">
+                                Stack:
+                              </span>{" "}
+                              Full-stack Next.js 16 con Supabase y Stripe
+                            </p>
+                            <p className="text-sm text-text-secondary mt-1">
+                              <span className="text-accent font-medium">
+                                Mi Rol:
+                              </span>{" "}
+                              Full-stack Developer
+                            </p>
+                            <div className="mt-8 pt-6 border-t border-white/5">
+                              <p className="text-sm font-medium text-text-secondary mb-4">
+                                Disponible en:
+                              </p>
+                              <div className="flex flex-wrap gap-4">
+                                <a
+                                  href="https://na-na.mx"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-3 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all group/store"
+                                >
+                                  <svg
+                                    className="w-6 h-6 text-text-primary"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                  >
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                                  </svg>
+                                  <div className="text-left">
+                                    <div className="text-[10px] text-text-secondary uppercase tracking-wider leading-none mb-0.5">
+                                      Visitar Ahora
+                                    </div>
+                                    <div className="text-sm font-semibold text-text-primary leading-none">
+                                      Sitio Web
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Separador sutil entre proyectos */}
+                      <div className="flex items-center gap-4 my-16">
+                        <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+                        <div className="w-2 h-2 rounded-full bg-accent/50"></div>
+                        <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+                      </div>
+
                       {/* Proyecto 5 - Zentro (Nuevo, Top Web App) */}
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div
@@ -1256,109 +1549,6 @@ export default function Home() {
                         </div>
                       </div>
 
-                      {/* Separador sutil entre proyectos */}
-                      <div className="flex items-center gap-4 my-16">
-                        <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
-                        <div className="w-2 h-2 rounded-full bg-accent/50"></div>
-                        <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
-                      </div>
-
-                      {/* Proyecto 2 - Gestor Visión Allende (Layout Izquierda) */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        {/* Mockup Container - Web Carousel */}
-                        <div
-                          className="order-2 lg:order-2 animate-on-scroll"
-                          data-animation="fade-in-right"
-                        >
-                          <WebCarousel
-                            images={[
-                              "/muckUpWeb/VA/1.png",
-                              "/muckUpWeb/VA/2.png",
-                              "/muckUpWeb/VA/3.png",
-                              "/muckUpWeb/VA/4.png",
-                              "/muckUpWeb/VA/5.png",
-                              "/muckUpWeb/VA/6.png",
-                            ]}
-                          />
-                        </div>
-
-                        <div
-                          className="order-1 lg:order-1 animate-on-scroll"
-                          data-animation="fade-in-left"
-                        >
-                          <div className="flex items-center gap-2 mb-4 flex-wrap">
-                            <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
-                              Aplicación Web
-                            </div>
-                            <div className="inline-flex px-3 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full items-center gap-1.5 font-medium">
-                              <svg
-                                className="w-3 h-3"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
-                                <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
-                              </svg>
-                              NexdevTech Team
-                            </div>
-                            <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5">
-                              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                              Completado
-                            </div>
-                          </div>
-                          <h3 className="text-3xl font-semibold text-text-primary mb-4">
-                            Gestor Visión Allende
-                          </h3>
-                          <p className="text-text-secondary mb-6 leading-relaxed">
-                            Sistema de gestión integral para ópticas que
-                            optimiza el control de clientes, ventas y
-                            graduaciones. Incluye registro completo de usuarios
-                            con datos personales y graduación oftalmológica,
-                            gestión de ventas y sistema de abonos, historial
-                            detallado de cada cliente, y generación automática
-                            de reportes mensuales de ventas. Una solución
-                            completa que digitaliza y moderniza la
-                            administración de negocios ópticos.
-                          </p>
-                          <div className="flex flex-wrap gap-2 mb-6">
-                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
-                              Next.js
-                            </span>
-                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
-                              NeonDB
-                            </span>
-                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
-                              PostgreSQL
-                            </span>
-                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
-                              TypeScript
-                            </span>
-                            <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">
-                              Tailwind
-                            </span>
-                          </div>
-                          <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
-                            <p className="text-sm text-text-secondary">
-                              <span className="text-accent font-medium">
-                                Características:
-                              </span>{" "}
-                              Gestión de clientes, ventas, abonos y reportes
-                              mensuales
-                            </p>
-                            <p className="text-sm text-text-secondary mt-1">
-                              <span className="text-accent font-medium">
-                                Stack:
-                              </span>{" "}
-                              Full-stack Next.js con backend integrado
-                            </p>
-                            <p className="text-sm text-text-secondary mt-1">
-                              <span className="text-accent font-medium">
-                                Mi Rol:
-                              </span>{" "}
-                              Full-stack Developer
-                            </p>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 )}
